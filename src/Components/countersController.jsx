@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import CounterCntrl from "./counterControlled"
 
 class CountersCntrl extends Component {
@@ -11,7 +11,13 @@ class CountersCntrl extends Component {
         ]
      }
     render() { 
-        return <div>
+        return <React.Fragment>
+            <nav style={{background:"blue",height:50,width:"100vw"}}>
+                
+                    <p style={{color:"white",fontSize:35,marginLeft:20}}> Number: <span style={{background:"grey",borderRadius:20,padding:3,marginTop:2,marginBottom:2}}>{this.computeCounters()}</span></p>
+                
+            </nav>
+        <div>
             <div className="reset">
                 <button onClick={this.handleReset} className="btn btn-primary m-2">Reset</button>
             </div>
@@ -23,6 +29,18 @@ class CountersCntrl extends Component {
             )}
             </div>
         </div>
+        </React.Fragment>
+    }
+
+    computeCounters(){
+        let c=0;
+        for (let i = 0; i < this.state.counters.length; i++) {
+            const element = this.state.counters[i];
+            if(element.value !== 0)
+            c++;
+            
+        }
+        return c;
     }
 
     handleIncrement = (cId) => this.setState({
@@ -60,3 +78,5 @@ class CountersCntrl extends Component {
 }
  
 export default CountersCntrl;
+
+// now with this arrangement of parent and controlled child keeps a single source of truth for all data resetting this will reset all children elements 

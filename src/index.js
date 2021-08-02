@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom"
-import Counter from "./Components/counter"
+//import Counter from "./Components/counter"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CounterAlt from "./Components/counterAlt"
-import Counters from "./Components/counters"
+//import CounterAlt from "./Components/counterAlt"
+//import Counters from "./Components/counters"
 import CountersController from "./Components/countersController"
 
 ReactDOM.render(
